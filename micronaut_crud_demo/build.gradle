@@ -1,0 +1,70 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.micronaut.application") version "3.7.0"
+    id("io.micronaut.test-resources") version "3.7.0"
+}
+
+version = "0.1"
+group = "com.aardwark.coc.four.spring_vs_micronaut"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    // older version must be used to work with javax.persistence annotations
+    annotationProcessor("org.hibernate:hibernate-jpamodelgen:5.6.12.Final")
+    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation("io.micronaut.flyway:micronaut-flyway")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    compileOnly("org.projectlombok:lombok")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("mysql:mysql-connector-java")
+    runtimeOnly("org.flywaydb:flyway-mysql")
+    testImplementation("org.mockito:mockito-core")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("io.micronaut.test:micronaut-test-junit5")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    implementation("io.micronaut:micronaut-validation")
+    // use the hibernate instead of the default Micronaut validator if full JSR 380
+    // compliance is required
+    // see: https://docs.micronaut.io/latest/guide/#beanValidation
+    // implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass.set("com.aardwark.coc.four.spring_vs_micronaut.Application")
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
+}
+compileJava.options.compilerArgs += '-parameters'
+
+graalvmNative.toolchainDetection = false
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("com.aardwark.coc.four.spring_vs_micronaut.*")
+    }
+}
+
+
+

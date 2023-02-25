@@ -1,0 +1,9 @@
+# It is expected to have a "neutral" application.yml file and then have an application-prod.yml with
+# a connection to an actual database.
+#
+# See: https://melix.github.io/blog/2022/08/micronaut-test-resources.html
+datasources:
+    default:
+        jdbc-url: jdbc:mysql://localhost:3306/database
+        username: root
+        password: root_password

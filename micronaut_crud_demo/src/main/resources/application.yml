@@ -1,0 +1,28 @@
+micronaut:
+  application:
+    name: micronaut_crud_demo
+  server:
+    port: 8081
+datasources:
+  default:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    db-type: mysql
+    dialect: MYSQL
+netty:
+  default:
+    allocator:
+      max-order: 3
+flyway:
+  datasources:
+    default:
+      enabled: true
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+        format_sql: true
+    entity-scan:
+      packages: com.aardwark.coc.four.spring_vs_micronaut.domain
