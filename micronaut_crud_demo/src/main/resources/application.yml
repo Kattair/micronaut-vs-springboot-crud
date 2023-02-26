@@ -26,3 +26,7 @@ jpa:
         format_sql: true
     entity-scan:
       packages: com.aardwark.coc.four.spring_vs_micronaut.domain
+app:
+  message: "Not blank message"
+  nested-config:
+    count: 42

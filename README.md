@@ -5,12 +5,13 @@ Repository with simple CRUD application implemented in both Micronaut and Spring
 
 | SpringBoot | Micronaut | Goal                                                         |
 |------------|-----------|--------------------------------------------------------------|
-| ✔️ | ✔️ | Bean creation and injection                                  |
-| ✔️ | ✔️ | JPA communication with DB                                    |
-| ✔️ | ✔️ | REST Controller                                              |
-| ✔️ | ✔️ | Integration tests                                            |
-| ❌ | ✔️ | Another set of Integration tests using declarative webclient |
-| ❌ | ❌ | Custom configuration properties with configuration classes   |
+| ✔️         | ✔️        | Bean creation and injection                                  |
+| ✔️         | ✔️        | JPA communication with DB                                    |
+| ✔️         | ✔️        | REST Controller                                              |
+| ✔️         | ✔️        | Integration tests                                            |
+| ❌          | ✔️        | Another set of Integration tests using declarative webclient |
+| ✔️         | ✔️        | Custom configuration properties with configuration classes   |
+| ✔️         | ✔️        | Controller dependent on "dev" environment/profile            |
 
 # Running the apps with the PROD application file
 Both apps have separate `application-prod` files that by default connect to the database spawned by the `docker_compose.yml`
