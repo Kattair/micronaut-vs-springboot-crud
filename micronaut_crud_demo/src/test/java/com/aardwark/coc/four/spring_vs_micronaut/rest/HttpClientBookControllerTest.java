@@ -43,8 +43,9 @@ class HttpClientBookControllerTest {
 
     @BeforeEach
     void setup() {
-        if (isNull(this.blockingHttpClient))
+        if (isNull(this.blockingHttpClient)) {
             this.blockingHttpClient = httpClient.toBlocking();
+        }
 
         this.bookRepository.deleteAll();
     }

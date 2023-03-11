@@ -7,7 +7,6 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.validation.Validated;
 
@@ -22,7 +21,7 @@ public interface BookOperations {
     List<BookDto> findAll(final Pageable pageable);
 
     @Get("/{id}")
-    Optional<BookDto> findById(@PathVariable @NotNull final Long id);
+    Optional<BookDto> findById(@NotNull final Long id);
 
     @Post
     HttpResponse<BookDto> save(@Body @Valid BookCreationDto book);
@@ -34,5 +33,5 @@ public interface BookOperations {
     HttpResponse<BookDto> saveWithException(@Body @Valid BookCreationDto book);
 
     @Delete("{id}")
-    void deleteById(@PathVariable @NotNull final Long id);
+    void deleteById(@NotNull final Long id);
 }

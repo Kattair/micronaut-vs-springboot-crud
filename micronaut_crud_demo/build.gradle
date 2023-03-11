@@ -54,7 +54,9 @@ java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")
 }
-compileJava.options.compilerArgs += '-parameters'
+
+// https://docs.micronaut.io/latest/guide/#retainparameternames
+//compileJava.options.compilerArgs += '-parameters'
 
 graalvmNative.toolchainDetection = false
 micronaut {

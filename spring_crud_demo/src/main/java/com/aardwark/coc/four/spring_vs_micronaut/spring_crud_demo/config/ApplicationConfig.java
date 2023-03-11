@@ -6,8 +6,6 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.Optional;
-
 @Getter
 @Setter
 @Validated
@@ -22,6 +20,6 @@ public class ApplicationConfig {
     @Getter
     @Setter
     public static class NestedConfig {
-        private Optional<Integer> count = Optional.empty();
+        private Integer count;
     }
 }
