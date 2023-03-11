@@ -8,6 +8,8 @@ import jakarta.inject.Singleton;
 public class DefaultBookCreationMapper implements BookCreationMapper {
     @Override
     public BookEntity toEntity(BookCreationDto dto) {
+        if (dto == null) return null;
+        
         return BookEntity.builder()
                          .isbn(dto.isbn())
                          .name(dto.name())

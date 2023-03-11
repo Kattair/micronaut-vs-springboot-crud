@@ -23,11 +23,15 @@ public class DevEnvironmentController {
 
     @GetMapping("/profiles")
     public String[] getActiveProfiles() {
+        log.info("GET /profiles");
+
         return environment.getActiveProfiles();
     }
 
     @GetMapping("/appcfg")
     public ApplicationConfig getApplicationConfig() {
+        log.info("GET /appcfg");
+
         return applicationConfig;
     }
 }

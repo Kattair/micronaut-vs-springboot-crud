@@ -11,6 +11,8 @@ public class DefaultBookMapper implements BookMapper {
 
     @Override
     public BookDto toDto(BookEntity entity) {
+        if (entity == null) return null;
+
         return new BookDto(entity.getId(),
                            entity.getIsbn(),
                            entity.getName());
@@ -18,6 +20,8 @@ public class DefaultBookMapper implements BookMapper {
 
     @Override
     public BookEntity toEntity(BookDto dto) {
+        if (dto == null) return null;
+        
         return BookEntity.builder()
                          .id(dto.id())
                          .isbn(dto.isbn())

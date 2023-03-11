@@ -21,13 +21,19 @@ public class DevEnvironmentController {
     private final Environment environment;
     private final ApplicationConfig applicationConfig;
 
+    // could be easily replaces with a built-in metrics endpoint
+    // https://docs.micronaut.io/latest/guide/index.html#management
     @Get("/env")
     public Set<String> getActiveEnvironments() {
+        log.info("GET /env");
+        
         return environment.getActiveNames();
     }
 
     @Get("/appcfg")
     public ApplicationConfig getApplicationConfig() {
+        log.info("GET /appcfg");
+
         return applicationConfig;
     }
 
