@@ -2,9 +2,10 @@ version: '3.4'
 
 services:
   database:
-    image: mysql
+    image: postgres
     environment:
-      - MYSQL_ROOT_PASSWORD=root_password
-      - MYSQL_DATABASE=database
+      - POSTGRES_PASSWORD=root_password
+      - POSTGRES_USER=root
+      - POSTGRES_DB=database
     ports:
-      - "3306:3306"
+      - "5432:5432"

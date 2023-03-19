@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -33,13 +33,13 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 class BookControllerTest {
 
     @Container
-    private static final MySQLContainer<?> MY_SQL_CONTAINER = new MySQLContainer<>("mysql");
+    private static final PostgreSQLContainer<?> POSTGRES_CONTAINER = new PostgreSQLContainer<>(PostgreSQLContainer.IMAGE);
 
     @DynamicPropertySource
     static void mySqlProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", MY_SQL_CONTAINER::getJdbcUrl);
-        registry.add("spring.datasource.username", MY_SQL_CONTAINER::getUsername);
-        registry.add("spring.datasource.password", MY_SQL_CONTAINER::getPassword);
+        registry.add("spring.datasource.url", POSTGRES_CONTAINER::getJdbcUrl);
+        registry.add("spring.datasource.username", POSTGRES_CONTAINER::getUsername);
+        registry.add("spring.datasource.password", POSTGRES_CONTAINER::getPassword);
     }
 
     @Autowired

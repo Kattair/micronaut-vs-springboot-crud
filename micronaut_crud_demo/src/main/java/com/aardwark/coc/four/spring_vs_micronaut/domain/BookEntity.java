@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -33,13 +32,10 @@ public class BookEntity {
     private Long id;
 
     @NotBlank
-    @Column(unique = true, nullable = false)
     private String isbn;
     @NotBlank
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     @DateCreated
     private Instant createdAt;
     @DateUpdated

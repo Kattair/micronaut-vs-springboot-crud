@@ -5,9 +5,9 @@ micronaut:
     port: 8081
 datasources:
   default:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    db-type: mysql
-    dialect: MYSQL
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    dialect: POSTGRES
 netty:
   default:
     allocator:

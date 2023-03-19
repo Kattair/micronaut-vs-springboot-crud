@@ -1,6 +1,5 @@
 package com.aardwark.coc.four.spring_vs_micronaut.spring_crud_demo.domain;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
@@ -36,13 +35,10 @@ public class BookEntity {
     private Long id;
 
     @NotBlank
-    @Column(unique = true, nullable = false)
     private String isbn;
     @NotBlank
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     @CreatedDate
     private Instant createdAt;
     @LastModifiedDate
